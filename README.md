@@ -37,6 +37,12 @@ haven't learned enough YAML to write an example yet :-P.
 
 ## Q and As
 
+ - **How is case handled?** Short answer: it's case-insensitive. Medium answer:
+it searches all search dirs for exact match, then tries case-insensitive
+match. Long answer: I am vaguely aware that calling `.lower()` on both sides of
+a string comparison isn't totally correct, and although it would be funny for a
+script of this size to use proper ICU casefolding I haven't got around to it.
+
  - **Why Python?** I considered shell but you know how it is, if it's easier in
 shell it's a little easier, if it's harder in shell it's a lot harder. If this
 was a few years ago it would have been Perl.
