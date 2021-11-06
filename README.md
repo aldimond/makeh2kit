@@ -27,10 +27,16 @@ You should also be able to specify more details with a deeper format if you
 want, I'm not documenting it yet because I haven't tested it yet, also I
 haven't learned enough YAML to write an example yet :-P.
 
-## Questions
+## Q and As
 
- - **Why YAML?** I was going to make it just a textfile with one filename per
-   line but then I thought I might as well add optional support for attributes.
-   Rather than invent a new dumb format, I chose an existing format that I
-   don't know much about but am going to need to learn for some work stuff.
+ - **Why Python?** I considered shell but you know how it is, if it's easier in
+   shell it's a little easier, if it's harder in shell it's a lot harder.
+
+ - **Why YAML?** I was going to make the input just a textfile with one
+filename per line but then I thought I might as well add optional support
+for attributes.  Rather than invent a new dumb format, I chose an existing
+format that I don't know much about but am going to need to learn for some work
+stuff.
+
+ - **Your code is shit.** Always has been.
 
