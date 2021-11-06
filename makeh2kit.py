@@ -162,6 +162,9 @@ if __name__ == "__main__":
     doc = Element("drumkit_info")
     SubElement(doc, "name").text = args.n
 
+    if args.info:
+        SubElement(doc, "info").text = args.info
+
     with open(args.i, encoding="utf-8") as infile:
         kitdesc = strictyaml.load(infile.read()).data
 
