@@ -47,7 +47,11 @@ for attributes.  Rather than invent a new dumb format, I chose an existing
 format that I don't know much about but am going to need to learn for some work
 stuff.
 
- - **Ew, xml.etree?** Whatever, it works.
+ - **Literally why bother with a Makefile?** That was just so I could do `:make
+lint` in vim and have the cursor jump straight to my errors. I'm a simple
+man with bad taste.
+
+ - **Ew, xml.etree?** Whatever, it works. I'm a simple man with bad taste.
 
  - **Your code is shit.** Always has been.
 
