@@ -21,8 +21,15 @@ _ALLOWED_TEXT_TYPES = str, int, float
 
 def _check_value_types(values: Dict[str, Any], ident: str) -> None:
     for k, v in values.items():
-        if not any(isinstance(v, t) for t in _ALLOWED_TEXT_TYPES):
+        if not isinstance(v, _ALLOWED_TEXT_TYPES):
             raise Exception(f"Illegal value: {repr(v)} for '{k}' tag in {ident}")
+
+def _check_keys(values: Dict[str, Any], ident: str) -> None:
+    seen = {}
+    for k in values:
+        if k.lower() in seen:
+            logging.warning(f"Tags '{k}' and '{seen[k.lower()]}' in {ident} differ only by case")
+        seen[k.lower()] = k
 
 class Layer:
     values: Dict[str, Any]
@@ -41,6 +48,7 @@ class Layer:
             self.values.update(values)
 
         _check_value_types(self.values, self._ident())
+        _check_keys(self.values, self._ident())
 
     def to_xml(self) -> Element:
         result = Element("layer")
@@ -103,10 +111,11 @@ class Instrument:
             raise Exception(f"{self._ident()} neither a mapping nor a string!")
 
         _check_value_types(self.values, self._ident())
+        _check_keys(self.values, self._ident())
   
 
     def _ident(self) -> str:
-        r = "Instrument #{self.values.get('id')}"
+        r = f"Instrument #{self.values.get('id')}"
         if "name" in self.values:
             r += f" ({self.values['name']})"
         return r
